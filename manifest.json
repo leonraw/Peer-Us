@@ -1,0 +1,44 @@
+{
+  "name": "PeerUs",
+  "version": "0.1.0",
+  "description": "Let's peer us!",
+  "permissions": [
+    "tabs",
+    "declarativeContent",
+    "activeTab",
+    "storage",
+    "webNavigation",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": [
+        "static/peerjs-0.3.18.min.js",
+        "peerus.js"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "page_action": {
+    "default_icon": {
+      "128": "images/cheer.png"
+    },
+    "default_title": "Peer Us",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "images/cheer.png"
+  },
+  "manifest_version": 2
+}
